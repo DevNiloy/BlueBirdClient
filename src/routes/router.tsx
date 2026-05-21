@@ -27,6 +27,7 @@ import ReturnPolicy from "@/public_pages/ReturnPolicy/ReturnPolicy";
 import TermsPage from "@/public_pages/TermsPage";
 import Contact from "@/public_pages/Contact";
 import { useEffect } from "react";
+import About from "../public_pages/about/About";
 function ErrorBoundary() {
   useEffect(() => {
     window.location.reload();
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: "product/:slug",
         element: <ProductDetails />,
+      },
+      {
+        path: "about",
+        element: <About />,
       },
       {
         path: "cart",
