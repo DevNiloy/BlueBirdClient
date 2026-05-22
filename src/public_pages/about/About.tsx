@@ -89,6 +89,7 @@ export default function About() {
             variants={dynamicStagger(0.2, 0.15)}
             className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.95] max-w-5xl"
           >
+            {/* ssss */}
             {[
               "Precision",
               "in",
