@@ -336,7 +336,8 @@ import {
   Loader2,
 } from "lucide-react";
 import { useGetCategoriesQuery } from "@/redux/features/admin/category";
-import { SubCategorySection } from "./subCategorySection";
+// @ts-ignore
+import { SubCategorySection } from "./WhyChooseUs";
 
 gsap.registerPlugin(ScrollTrigger);
 

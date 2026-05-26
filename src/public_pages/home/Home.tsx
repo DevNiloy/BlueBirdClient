@@ -1,9 +1,9 @@
-import FeaturedSections from "./components/FeaturedSection";
 import HeroSection from "./components/HeroSection";
-import Newsletter from "./components/Newsletter";
-import RollingGallery from "./components/RollingGallery";
 
 import { useGetMeQuery } from "@/redux/features/authApi";
+import CategoriesGrid from "./components/CategoriesGrid";
+import WhyChooseUs from "./components/WhyChooseUs";
+import OurTeam from "./components/OurTeam";
 
 export default function Home() {
   const { data } = useGetMeQuery(undefined);
@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
-      <RollingGallery />
-      <FeaturedSections />
-      <Newsletter />
+      <CategoriesGrid />
+      <WhyChooseUs />
+      <OurTeam />
     </div>
   );
 }

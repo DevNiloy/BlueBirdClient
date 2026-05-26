@@ -7,10 +7,10 @@ import {
   ShoppingBag,
   Package,
   Users,
-  Settings,
+  // Settings,
   LogOut,
   Menu,
-  X,
+  // X,
   Loader2,
   ChevronRight,
   Database,
@@ -63,11 +63,11 @@ const AdminLayout = () => {
       path: `/admin/add-categories`,
     }, // Category/Inventory logic
     { icon: <Users size={18} />, label: "Customers", path: `/admin/users` },
-    {
-      icon: <Settings size={18} />,
-      label: "Settings",
-      path: `/admin/settings`,
-    },
+    // {
+    //   icon: <Settings size={18} />,
+    //   label: "Settings",
+    //   path: `/admin/settings`,
+    // },
   ];
 
   return (

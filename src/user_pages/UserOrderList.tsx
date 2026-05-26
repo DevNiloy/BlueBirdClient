@@ -14,13 +14,12 @@ import { useNavigate } from "react-router-dom";
 
 const UserOrderList = () => {
   const navigate = useNavigate();
-  // const { locale } = useParams();
   const { data: orderData, isLoading } = useGetMyOrdersQuery(undefined);
 
   const orders = orderData?.data || [];
 
   const getStatusStyle = (status: string) => {
-    switch (status.toLowerCase()) {
+    switch (status?.toLowerCase()) {
       case "pending":
         return "bg-amber-50 text-amber-600 border-amber-100";
       case "shipped":
@@ -35,7 +34,7 @@ const UserOrderList = () => {
   };
 
   const getStatusIcon = (status: string) => {
-    switch (status.toLowerCase()) {
+    switch (status?.toLowerCase()) {
       case "pending":
         return <Clock size={14} />;
       case "delivered":
@@ -83,79 +82,88 @@ const UserOrderList = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {orders?.map((order: any) => (
-            <div
-              key={order._id}
-              className="bg-white rounded-[2rem] border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex justify-between items-start mb-6">
-                  <div
-                    className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider border flex items-center gap-1.5 ${getStatusStyle(order.status)}`}
-                  >
-                    {getStatusIcon(order.status)}
-                    {order.status}
-                  </div>
-                  <span className="text-[10px] font-black text-gray-300 group-hover:text-[#1F5E3B] transition-colors">
-                    #{order._id.slice(-6).toUpperCase()}
-                  </span>
-                </div>
+          {orders?.map((order: any) => {
+            const firstItem = order.orderItems?.[0];
+            // ভেরিয়েন্ট টেক্সট প্রিপেয়ার করা (যেমন: 500ml বা 1kg)
+            const variantText = firstItem?.unit ? ` (${firstItem.unit})` : "";
 
-                <div className="space-y-4">
-                  {/* Items Preview */}
-                  <div className="flex -space-x-3 overflow-hidden">
-                    {order.orderItems?.slice(0, 3).map((item: any) => (
-                      <div
-                        key={item._id}
-                        className="h-12 w-12 rounded-xl border-2 border-white bg-gray-50 overflow-hidden shadow-sm"
-                      >
-                        <img
-                          src={item.product?.image || item.image}
-                          alt=""
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                    ))}
-                    {order.orderItems?.length > 3 && (
-                      <div className="h-12 w-12 rounded-xl border-2 border-white bg-gray-100 flex items-center justify-center text-[10px] font-black text-gray-500">
-                        +{order.orderItems.length - 3}
-                      </div>
-                    )}
+            return (
+              <div
+                key={order._id}
+                className="bg-white rounded-[2rem] border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-6">
+                    <div
+                      className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider border flex items-center gap-1.5 ${getStatusStyle(order.status)}`}
+                    >
+                      {getStatusIcon(order.status)}
+                      {order.status}
+                    </div>
+                    <span className="text-[10px] font-black text-gray-300 group-hover:text-[#1F5E3B] transition-colors">
+                      #{order._id.slice(-6).toUpperCase()}
+                    </span>
                   </div>
 
-                  <div className="space-y-1">
-                    <h3 className="font-black text-[#1A2E1A] text-lg leading-tight">
-                      {order.orderItems?.[0]?.product?.name || "Order Item"}
-                      {order.orderItems?.length > 1 &&
-                        ` +${order.orderItems.length - 1} more`}
-                    </h3>
-                    <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-tight">
-                      <Calendar size={12} />
-                      {new Date(order.createdAt).toLocaleDateString("en-GB", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                      })}
+                  <div className="space-y-4">
+                    {/* Items Preview */}
+                    <div className="flex -space-x-3 overflow-hidden">
+                      {order.orderItems?.slice(0, 3).map((item: any) => (
+                        <div
+                          key={item._id}
+                          className="h-12 w-12 rounded-xl border-2 border-white bg-gray-50 overflow-hidden shadow-sm"
+                        >
+                          <img
+                            src={item.image || item.product?.image}
+                            alt=""
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      ))}
+                      {order.orderItems?.length > 3 && (
+                        <div className="h-12 w-12 rounded-xl border-2 border-white bg-gray-100 flex items-center justify-center text-[10px] font-black text-gray-500">
+                          +{order.orderItems.length - 3}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="space-y-1">
+                      <h3 className="font-black text-[#1A2E1A] text-lg leading-tight uppercase tracking-tight">
+                        {/* ওর্ডারে সেভ করা ইউনিক নেম এবং ভেরিয়েন্ট একসাথে দেখানো হলো */}
+                        {firstItem
+                          ? `${firstItem.name}${variantText}`
+                          : "Order Item"}
+                        {order.orderItems?.length > 1 &&
+                          ` +${order.orderItems.length - 1} more`}
+                      </h3>
+                      <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-tight">
+                        <Calendar size={12} />
+                        {new Date(order.createdAt).toLocaleDateString("en-GB", {
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                        })}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-50 flex items-center justify-between">
-                <div>
-                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
-                    Total Amount
-                  </p>
-                  <p className="text-xl font-black text-[#1F5E3B]">
-                    ¥{order.totalPrice.toLocaleString()}
-                  </p>
-                </div>
-                <div className="h-10 w-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#1F5E3B] group-hover:text-white transition-all shadow-sm">
-                  <ChevronRight size={20} />
+                <div className="mt-8 pt-6 border-t border-gray-50 flex items-center justify-between">
+                  <div>
+                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                      Total Amount
+                    </p>
+                    <p className="text-xl font-black text-[#1F5E3B]">
+                      ৳{order.totalPrice.toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="h-10 w-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#1F5E3B] group-hover:text-white transition-all shadow-sm">
+                    <ChevronRight size={20} />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>

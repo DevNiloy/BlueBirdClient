@@ -100,7 +100,7 @@ export const router = createBrowserRouter([
 
   {
     path: "/admin",
-    // element: <AdminGuard />,
+    element: <AdminGuard />,
     children: [
       {
         element: <AdminLayout />,

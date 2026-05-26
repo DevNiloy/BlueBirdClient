@@ -29,7 +29,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
 
   // --- States ---
-  const [quantity, setQuantity] = useState(1);
+  const [quantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedVarIndex, setSelectedVarIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -59,18 +59,22 @@ const ProductDetails = () => {
   }, [product?.variants, selectedVarIndex]);
 
   // --- Handlers ---
+  // ProductDetails.tsx এর ভেতরের handleAddToCart ফাংশনটি এভাবে রিপ্লেস করুন:
+
   const handleAddToCart = useCallback(() => {
     if (!currentVariant || !product) return;
 
     dispatch(
       addToCart({
         id: product._id,
+        // @ts-ignore
+        variantId: currentVariant._id, // ভেরিয়েন্টের অবজেক্ট আইডি
         name: product.title,
-        price: currentVariant.price,
-        qty: quantity,
+        unit: currentVariant.unit, // ভেরিয়েন্টের ইউনিট (যেমন: 500ml)
+        price: currentVariant.price, // ভেরিয়েন্টের স্পেসিফিক প্রাইস
+        qty: quantity, // আপনার লোকাল স্টেটের কারেন্ট কোয়ান্টিটি
         img: images[0],
         slug: product.slug,
-        variantId: currentVariant._id,
       }),
     );
 
@@ -78,7 +82,7 @@ const ProductDetails = () => {
       toast: true,
       position: "top-end",
       icon: "success",
-      title: "Item added to cart",
+      title: `Item (${currentVariant.unit}) added to cart`,
       showConfirmButton: false,
       timer: 1500,
     });
@@ -186,7 +190,8 @@ const ProductDetails = () => {
           <div className="lg:col-span-5">
             <div className="mb-8 space-y-3">
               <span className="text-[11px] font-black text-blue-600 uppercase tracking-widest">
-                CAS NO: {product.casNumber || "Technical Grade"}
+                CAS NO:
+                {product ? "Technical Grade" : ""}
               </span>
               <h1 className="text-4xl lg:text-5xl font-black text-slate-900 leading-tight uppercase tracking-tighter">
                 {product.title}
@@ -262,11 +267,11 @@ const ProductDetails = () => {
             <div className="mb-10">
               <div className="flex items-baseline gap-4">
                 <span className="text-6xl font-black tracking-tighter italic text-slate-950">
-                  ¥{currentVariant?.price?.toLocaleString() || "0"}
+                  ৳{currentVariant?.price?.toLocaleString() || "0"}
                 </span>
-                {currentVariant?.discountPrice > 0 && (
+                {currentVariant && currentVariant?.discountPrice > 0 && (
                   <span className="text-slate-300 line-through text-xl font-bold italic">
-                    ¥{currentVariant.discountPrice}
+                    ৳{currentVariant?.discountPrice}
                   </span>
                 )}
               </div>

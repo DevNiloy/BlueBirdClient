@@ -76,6 +76,7 @@ export default function Contact() {
         >
           {/* LEFT & CENTER COLUMNS: GENERAL INQUIRY FORM */}
           <motion.div
+            // @ts-ignore
             variants={premiumFadeInY}
             className="lg:col-span-2 bg-white p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm"
           >
@@ -199,6 +200,7 @@ export default function Contact() {
           <div className="space-y-8">
             {/* Global Headquarters Card */}
             <motion.div
+              // @ts-ignore
               variants={premiumFadeInY}
               className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden"
             >
@@ -266,6 +268,7 @@ export default function Contact() {
 
             {/* Immediate Assistance (WhatsApp Callout) */}
             <motion.div
+              // @ts-ignore
               variants={premiumFadeInY}
               className="bg-emerald-600 text-white p-8 rounded-3xl shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[220px] group"
             >

@@ -22,13 +22,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import logo from "../../../public/BBBL_logo-removebg-preview.png";
 
 // RTK Query & Redux Hooks
 import { useGetCategoriesQuery } from "@/redux/features/admin/category";
 import { useGetMeQuery, useLogoutMutation } from "@/redux/features/authApi";
 import { useSelector } from "react-redux";
-
-import LanguageDropdown from "../translation/LanguageDropdown";
 
 const IMG_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
@@ -105,12 +104,13 @@ const Navbar = () => {
       <div className="mx-auto mr-4 md:mr-14 ml-4 md:ml-14 px-4 h-20 flex items-center justify-between gap-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-9 h-9 bg-[#2D5DA1] rounded-lg flex items-center justify-center shadow-sm">
+          {/* <div className="w-9 h-9 bg-[#2D5DA1] rounded-lg flex items-center justify-center shadow-sm">
             <span className="text-white text-lg">🕌</span>
           </div>
           <h1 className="text-xl font-black text-[#1A2E1A] tracking-tighter">
             MainichiHalal <span className="text-[#2D5DA1]">Shop</span>
-          </h1>
+          </h1> */}
+          <img src={logo} className="w-24 h-12 cen" alt="" />
         </Link>
 
         {/* Desktop Search & Categories */}

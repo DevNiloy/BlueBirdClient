@@ -1,139 +1,172 @@
-import { Mail, Globe, MapPin, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
-import icon from "../../assets/whatsapp (1).png";
-import { useGetCategoriesQuery } from "../../redux/features/admin/category";
-
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const { data: category } = useGetCategoriesQuery();
-  console.log(category);
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Globe2,
+  ShieldCheck,
+  Building2,
+} from "lucide-react";
+import logo from "../../../public/BBBL_logo-removebg-preview.png";
+export default function Footer() {
   return (
-    <footer className="bg-white pt-16 pb-8 border-t border-gray-100">
-      {/* মেইন কন্টেইনার উইথ রেসপনসিভ মার্জিন */}
-      <div className="md:mx-14 mx-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* ১. লোগো এবং ডেসক্রিপশন */}
+    <footer className="bg-[#0c2340] text-slate-300 pt-20 pb-8 px-6 md:px-12 lg:px-24 border-t border-slate-800/80 font-sans antialiased">
+      <div className="max-w-7xl mx-auto">
+        {/* MAIN FOOTER GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-slate-800/60">
+          {/* COLUMN 1: BRAND IDENTITY & DESCRIPTION */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-[#1F5E3B] rounded-lg flex items-center justify-center">
-                <img
-                  src="/logo-white.svg" // আপনার লোগো পাথ এখানে দিন
-                  alt="Halal Japan"
-                  className="w-6 h-6 invert brightness-0"
-                />
-              </div>
-              <h2 className="text-xl font-black text-[#1A2E1A] tracking-tighter">
-                HALAL <span className="text-[#1F5E3B]">JAPAN</span>
-              </h2>
+            <div className="flex items-center gap-2 text-white">
+              <img src={logo} className="h-48 w-54" alt="" />
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Premium halal grocery provider in Japan. We bridge the gap between
-              global halal standards and Japanese quality precision.
+
+            <p className="text-slate-400 text-sm leading-relaxed font-normal tracking-wide">
+              Our headquarters in Dhaka-Bangladesh with fair presence of
+              recognition across the globe. We have morphed into a sourcing
+              powerhouse in the Asia, Europe & Pacific region.
             </p>
-            <div className="flex gap-3">
-              <a
-                href="https://www.mainichihalalfoodshop.com/"
-                target="blank"
-                className="w-10 h-10 rounded-full bg-[#F1F5F1] flex items-center justify-center text-[#1F5E3B] hover:bg-[#1F5E3B] hover:text-white transition-all"
-              >
-                <Globe size={18} />
-              </a>
-              <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=mainichihalals@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#F1F5F1] flex items-center justify-center text-[#1F5E3B] hover:bg-[#1F5E3B] hover:text-white transition-all"
-              >
-                <Mail size={18} />
-              </a>
+
+            {/* Social / Recognition Badges exactly like reference */}
+            <div className="flex gap-3 pt-2">
+              <div className="p-2.5 bg-slate-900/60 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-[#2D5DA1] transition-colors cursor-pointer">
+                <Globe2 size={16} />
+              </div>
+              <div className="p-2.5 bg-slate-900/60 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-[#2D5DA1] transition-colors cursor-pointer">
+                <ShieldCheck size={16} />
+              </div>
+              <div className="p-2.5 bg-slate-900/60 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:border-[#2D5DA1] transition-colors cursor-pointer">
+                <Building2 size={16} />
+              </div>
             </div>
           </div>
 
-          {/* ২. কুইক ক্যাটাগরি */}
-          <div>
-            <h4 className="font-bold text-[#1A2E1A] mb-6 uppercase tracking-widest text-xs">
-              Quick Categories
+          {/* COLUMN 2: QUICK LINKS */}
+          <div className="space-y-6 lg:pl-8">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              Quick Links
             </h4>
-            {/* all_products?category=69d22cf9ecbd315d015abbc8&page=1 */}
-            <ul className="space-y-4 text-sm text-gray-600 font-medium">
-              {category?.slice(0, 4).map((item) => (
-                <Link to={`all_products?category=${item._id}&page=1`}>
-                  <li
-                    key={item._id}
-                    className="hover:text-[#1F5E3B] cursor-pointer transition-colors"
+            <ul className="space-y-3 text-sm font-medium text-slate-400">
+              {[
+                "Safety Data Sheets",
+                "Compliance Certificates",
+                "Terms of Sale",
+                "Privacy Policy",
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <a
+                    href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="hover:text-white transition-colors block"
                   >
-                    {item.name}
-                  </li>
-                </Link>
+                    {item}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
 
-          {/* ৩. ইনফরমেশন */}
-          <div>
-            <h4 className="font-bold text-[#1A2E1A] mb-6 uppercase tracking-widest text-xs">
-              Information
+          {/* COLUMN 3: SERVICES */}
+          <div className="space-y-6">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
+              Services
             </h4>
-            <ul className="space-y-4 text-sm text-gray-600 font-medium">
-              <li className="hover:text-[#1F5E3B] cursor-pointer transition-colors">
-                <Link to="/shipping-policy">Shipping Guide</Link>
-              </li>
-              <li className="hover:text-[#1F5E3B] cursor-pointer transition-colors">
-                <Link to="/return-policy">Return Policy</Link>
-              </li>
-              <li className="hover:text-[#1F5E3B] cursor-pointer transition-colors">
-                <Link to="/terms">Terms & Conditions</Link>
-              </li>
+            <ul className="space-y-3 text-sm font-medium text-slate-400">
+              {[
+                "Global Logistics",
+                "Inventory Management",
+                "Lab Consulting",
+                "Waste Recovery",
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <a
+                    href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="hover:text-white transition-colors block"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* ৪. কন্টাক্ট ইনফো */}
-          <div>
-            <h4 className="font-bold text-[#1A2E1A] mb-6 uppercase tracking-widest text-xs">
+          {/* COLUMN 4: DYNAMIC CONTACT US INFOS */}
+          <div className="space-y-6">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
               Contact Us
             </h4>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-3 text-sm text-gray-600">
-                <MapPin size={20} className="text-[#1F5E3B] shrink-0" />
-                <span>
-                  1.15.3 Yachiyodai Higashi, Yachiyo-shi, Chiba Prefecture
-                  276-0032, Japan.
-                </span>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-gray-600 ">
-                <Phone size={18} className="text-[#1F5E3B] shrink-0" />
-                <span className="block">0474814515 </span>
-                <div className="flex items-center gap-2">
-                  <img src={icon} alt="" className="w-4 h-4" />
-                  09017039984
+            <div className="space-y-4 text-sm font-medium">
+              {/* Mail Segment */}
+              <div className="flex items-start gap-3 group">
+                <Mail size={16} className="text-emerald-500 mt-0.5 shrink-0" />
+                <a
+                  href="mailto:contact@bluebird-bd.com"
+                  className="text-slate-400 hover:text-white transition-colors break-all"
+                >
+                  contact@bluebird-bd.com
+                </a>
+              </div>
+
+              {/* Phone Segment */}
+              <div className="flex items-start gap-3">
+                <Phone size={16} className="text-emerald-500 mt-0.5 shrink-0" />
+                <div className="text-slate-400 space-y-1">
+                  <a
+                    href="tel:+8801782680108"
+                    className="hover:text-white transition-colors block"
+                  >
+                    +88 017 8268 0108
+                  </a>
+                  <a
+                    href="tel:+0919073017018"
+                    className="hover:text-white transition-colors block"
+                  >
+                    +09 190 7301 7018
+                  </a>
                 </div>
-              </li>
-            </ul>
+              </div>
+
+              {/* Office Location Segment */}
+              <div className="flex items-start gap-3">
+                <MapPin
+                  size={16}
+                  className="text-emerald-500 mt-0.5 shrink-0"
+                />
+                <span className="text-slate-400 leading-relaxed">
+                  47, Dilkusha (Zaman Chamber)
+                  <br />
+                  5th Floor, Motijheel, Dhaka-1000
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* ৫. কপিরাইট এবং লিগ্যাল */}
-        <div className="pt-8 border-t border-gray-100 flex flex-col md:row justify-between items-center gap-4">
-          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
-            © {currentYear} Mainichi Halal Food Shop, LTD. ALL RIGHTS RESERVED.
-            - AnisulHaque
-          </p>
-          {/* <div className="flex gap-6 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-            <a href="#" className="hover:text-[#1F5E3B] transition-colors">
-              Privacy
+        {/* BOTTOM METADATA BAR */}
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-slate-500">
+          <div>
+            © {new Date().getFullYear()} Blue Bird Business Link. All rights
+            reserved. ISO 9001:2015 Certified.
+          </div>
+          <div className="flex gap-6">
+            <a
+              href="#security"
+              className="hover:text-slate-400 transition-colors"
+            >
+              Security
             </a>
-            <a href="#" className="hover:text-[#1F5E3B] transition-colors">
-              Terms
+            <a
+              href="#sitemap"
+              className="hover:text-slate-400 transition-colors"
+            >
+              Sitemap
             </a>
-            <a href="#" className="hover:text-[#1F5E3B] transition-colors">
-              Cookie Policy
+            <a
+              href="#accessibility"
+              className="hover:text-slate-400 transition-colors"
+            >
+              Accessibility
             </a>
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

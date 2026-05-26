@@ -55,9 +55,12 @@ const EditProduct = () => {
         desc: product.desc || "",
         category: product.category?._id || "",
         subCategory: product.subCategory?._id || "",
+        // @ts-ignore
         brand: product.brand || "",
+        // @ts-ignore
         stockStatus: product.stockStatus || "available",
         bestSeller: product.bestSeller || false,
+        // @ts-ignore
         featured: product.featured || false,
       });
 

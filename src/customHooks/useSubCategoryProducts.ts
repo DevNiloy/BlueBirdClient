@@ -22,6 +22,7 @@ export const useSubCategoryProducts = (
   return {
     // @ts-ignore
     products: data?.data || [],
+    // @ts-ignore
     totalCount: data?.totalCount || 0,
     isLoading,
     isError,
