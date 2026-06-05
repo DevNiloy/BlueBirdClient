@@ -262,7 +262,7 @@ const Navbar = () => {
                 </DropdownMenu>
               ) : (
                 <div className="flex gap-2">
-                  <Link to="/login">
+                  <Link to="/login" className="cursor-pointer">
                     <Button
                       variant="ghost"
                       className="rounded-full px-6 font-bold text-[#2D5DA1]"
@@ -270,7 +270,7 @@ const Navbar = () => {
                       Login
                     </Button>
                   </Link>
-                  <Link to="/register">
+                  <Link to="/register" className="cursor-pointer">
                     <Button className="bg-[#2D5DA1] hover:bg-[#244b82] rounded-full px-6 text-white font-bold">
                       Register
                     </Button>

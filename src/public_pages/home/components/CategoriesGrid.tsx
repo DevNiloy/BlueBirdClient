@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Factory, Sprout, Layers, Truck, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // --- Framer Motion Animations ---
 const staggerContainer = {
@@ -34,8 +35,8 @@ export default function CategoriesGrid() {
               <span className="text-[#2D5DA1]">Every Industry</span>
             </h2>
           </div>
-          <a
-            href="#all-solutions"
+          <Link
+            to={"all_products"}
             className="inline-flex items-center gap-2 text-sm font-bold text-[#0c2340] hover:text-[#2D5DA1] transition-colors group border-b-2 border-slate-200 pb-1"
           >
             Explore All Solutions
@@ -43,7 +44,7 @@ export default function CategoriesGrid() {
               size={16}
               className="transform group-hover:translate-x-1 transition-transform"
             />
-          </a>
+          </Link>
         </div>
 
         {/* BENTO GRID LAYOUT */}
@@ -82,9 +83,12 @@ export default function CategoriesGrid() {
                 control environments.
               </p>
               <div className="pt-2">
-                <button className="px-5 py-2.5 bg-white text-[#0c2340] hover:bg-slate-100 font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-colors">
+                <Link
+                  to={"contact"}
+                  className="px-5 py-2.5 bg-white text-[#0c2340] hover:bg-slate-100 font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-colors"
+                >
                   Request Catalog
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>

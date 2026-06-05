@@ -4,6 +4,7 @@ import { useGetMeQuery } from "@/redux/features/authApi";
 import CategoriesGrid from "./components/CategoriesGrid";
 import WhyChooseUs from "./components/WhyChooseUs";
 import OurTeam from "./components/OurTeam";
+import WhoWeAre from "./components/WhoWeAre";
 
 export default function Home() {
   const { data } = useGetMeQuery(undefined);
@@ -14,7 +15,7 @@ export default function Home() {
       <HeroSection />
       <CategoriesGrid />
       <WhyChooseUs />
-      <OurTeam />
+      <WhoWeAre />
     </div>
   );
 }

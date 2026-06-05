@@ -88,12 +88,38 @@ const ProductDetails = () => {
     });
   }, [currentVariant, product, quantity, images, dispatch]);
 
+  // const handleReviewSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (!comment) return Swal.fire("Error", "Please write a comment", "error");
+
+  //   try {
+  //     await createReview({ slug, rating, comment }).unwrap();
+  //     Swal.fire("Success", "Review submitted successfully", "success");
+  //     setComment("");
+  //     refetch();
+  //   } catch (err: any) {
+  //     Swal.fire(
+  //       "Error",
+  //       err.data?.message || "Failed to submit review",
+  //       "error",
+  //     );
+  //   }
+  // };
+
   const handleReviewSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!comment) return Swal.fire("Error", "Please write a comment", "error");
+    if (!product?._id)
+      return Swal.fire("Error", "Product identifier missing", "error");
 
     try {
-      await createReview({ slug, rating, comment }).unwrap();
+      // slug-এর পরিবর্তে product._id পাস করুন
+      await createReview({
+        productId: product._id,
+        rating,
+        comment,
+      }).unwrap();
+
       Swal.fire("Success", "Review submitted successfully", "success");
       setComment("");
       refetch();

@@ -1,6 +1,6 @@
- 
 import { motion } from "framer-motion";
 import { ArrowRight, Beaker, GraduationCap, Building2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   // Client List grouped with distinct types for icons
@@ -73,17 +73,23 @@ export default function HeroSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="flex flex-wrap gap-4 pt-4"
           >
-            <button className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm tracking-wide rounded-xl shadow-lg transition-all flex items-center gap-2 group">
+            <Link
+              to={"all_products"}
+              className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm tracking-wide rounded-xl shadow-lg transition-all flex items-center gap-2 group"
+            >
               View Product Catalog
               <ArrowRight
                 size={16}
                 className="transform group-hover:translate-x-1 transition-transform"
               />
-            </button>
+            </Link>
 
-            <button className="px-6 py-3.5 bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md text-white font-bold text-sm tracking-wide rounded-xl transition-all">
+            <Link
+              to={"contact"}
+              className="cursor-pointer px-6 py-3.5 bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md text-white font-bold text-sm tracking-wide rounded-xl transition-all"
+            >
               Technical Support
-            </button>
+            </Link>
           </motion.div>
         </div>
       </section>
