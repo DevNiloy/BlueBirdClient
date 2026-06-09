@@ -169,7 +169,7 @@ const CartPage = () => {
                     className="flex flex-wrap md:flex-nowrap items-center gap-6 py-6"
                   >
                     <img
-                      src={item.img}
+                      src={`${import.meta.env.VITE_API_URL}${item.img}`}
                       className="w-20 h-20 rounded-2xl object-cover bg-slate-50 border border-slate-100"
                       alt={item.name}
                     />

@@ -97,10 +97,10 @@ export default function Footer() {
               <div className="flex items-start gap-3 group">
                 <Mail size={16} className="text-emerald-500 mt-0.5 shrink-0" />
                 <a
-                  href="mailto:contact@bluebird-bd.com"
+                  href="mailto:contact@bbbl.com.bd"
                   className="text-slate-400 hover:text-white transition-colors break-all"
                 >
-                  contact@bluebird-bd.com
+                  contact@bbbl.com.bd
                 </a>
               </div>
 
@@ -109,16 +109,10 @@ export default function Footer() {
                 <Phone size={16} className="text-emerald-500 mt-0.5 shrink-0" />
                 <div className="text-slate-400 space-y-1">
                   <a
-                    href="tel:+8801782680108"
+                    href="tel:+8801621120670"
                     className="hover:text-white transition-colors block"
                   >
-                    +88 017 8268 0108
-                  </a>
-                  <a
-                    href="tel:+0919073017018"
-                    className="hover:text-white transition-colors block"
-                  >
-                    +09 190 7301 7018
+                    +880 162 1120 670
                   </a>
                 </div>
               </div>

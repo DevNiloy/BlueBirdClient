@@ -137,7 +137,7 @@ const RegisterPage = () => {
                     name="name"
                     required
                     className="w-full text-xs font-medium px-4 py-3 bg-white border border-slate-300 rounded-xs focus:border-[#0c2340] focus:ring-1 focus:ring-[#0c2340] transition-all outline-none text-slate-800 placeholder-slate-300"
-                    placeholder="Anisul Haque"
+                    placeholder="Name"
                     value={formData.name}
                     onChange={handleChange}
                   />
@@ -159,7 +159,7 @@ const RegisterPage = () => {
                     name="email"
                     required
                     className="w-full text-xs font-medium px-4 py-3 bg-white border border-slate-300 rounded-xs focus:border-[#0c2340] focus:ring-1 focus:ring-[#0c2340] transition-all outline-none text-slate-800 placeholder-slate-300"
-                    placeholder="name@company.com"
+                    placeholder="name@gmail.com"
                     value={formData.email}
                     onChange={handleChange}
                   />

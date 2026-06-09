@@ -51,6 +51,7 @@ export default function WhoWeAre() {
           {/* Left Column: Heading & Core Focus */}
           <div className="lg:col-span-5 space-y-6">
             <motion.div
+              //@ts-ignore
               variants={premiumFadeInY}
               initial="hidden"
               whileInView="visible"
@@ -67,6 +68,7 @@ export default function WhoWeAre() {
             </motion.div>
 
             <motion.p
+              //@ts-ignore
               variants={premiumFadeInY}
               initial="hidden"
               whileInView="visible"
@@ -85,6 +87,7 @@ export default function WhoWeAre() {
             </motion.p>
 
             <motion.p
+              //@ts-ignore
               variants={premiumFadeInY}
               initial="hidden"
               whileInView="visible"
@@ -99,6 +102,7 @@ export default function WhoWeAre() {
 
             {/* Premium CTA Button to About Page */}
             <motion.div
+              //@ts-ignore
               variants={premiumFadeInY}
               initial="hidden"
               whileInView="visible"
@@ -126,6 +130,7 @@ export default function WhoWeAre() {
 
             {/* Global Network Mini Badge */}
             <motion.div
+              //@ts-ignore
               variants={premiumFadeInY}
               initial="hidden"
               whileInView="visible"
@@ -149,6 +154,7 @@ export default function WhoWeAre() {
           {/* Right Column: Team Strength & Industry Grid */}
           <div className="lg:col-span-7 space-y-8">
             <motion.div
+              //@ts-ignore
               variants={premiumFadeInY}
               initial="hidden"
               whileInView="visible"
@@ -189,6 +195,7 @@ export default function WhoWeAre() {
                 {industries.map((industry, index) => (
                   <motion.div
                     key={index}
+                    //@ts-ignore
                     variants={premiumFadeInY}
                     whileHover={{ scale: 1.02, backgroundColor: "#f8fafc" }}
                     className="flex items-center gap-2 p-3 bg-white border border-slate-200/70 rounded-xl shadow-2xs transition-all"

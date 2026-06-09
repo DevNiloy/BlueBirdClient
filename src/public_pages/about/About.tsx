@@ -174,7 +174,7 @@ export default function About() {
       name: "TANVIR HASAN RUPOM",
       degree: "B.Sc. in Genetic Engineering & Biotechnology",
       role: "Sr. Executive Officer",
-      experience: "Biotech Specialist",
+      experience: "",
       tags: ["Pharma Relations", "HiMedia Products", "Marketing & Purchase"],
       bio: "Completed his degree from East West University and worked as a research associate at Dhaka University, gaining practical laboratory experience. Currently managing marketing activities, website management, and pharmaceutical client relations at BBBL Biotech Products, specializing in handling dehydrated culture media and HiMedia products to ensure proper client support.",
     },

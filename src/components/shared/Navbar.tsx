@@ -148,7 +148,7 @@ const Navbar = () => {
             <Input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search halal products..."
+              placeholder="Search products..."
               className="w-full bg-[#F1F5F9] border-none rounded-full pl-12 h-12 text-[#1A2E1A] focus-visible:ring-2 focus-visible:ring-[#2D5DA1]/20"
             />
           </form>
