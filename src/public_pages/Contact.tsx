@@ -289,7 +289,7 @@ export default function Contact() {
               </div>
 
               <a
-                href="https://wa.me/8801782680108"
+                href="https://wa.me/8801621120670"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-6 w-full py-3.5 bg-white text-emerald-700 font-bold text-xs uppercase tracking-widest rounded-xl text-center shadow-md hover:bg-emerald-50 transition-colors z-10"
@@ -325,16 +325,10 @@ export default function Contact() {
             </div>
             <div className="pt-4 border-t border-slate-100 space-y-1.5 text-sm">
               <a
-                href="mailto:contact@bluebird-bd.com"
+                href="mailto:contact@bbbl.com.bd"
                 className="block text-[#2D5DA1] font-bold hover:underline"
               >
-                contact@bluebird-bd.com
-              </a>
-              <a
-                href="mailto:bird0521blue@gmail.com"
-                className="block text-slate-500 font-medium hover:underline"
-              >
-                bird0521blue@gmail.com
+                contact@bbbl.com.bd
               </a>
             </div>
           </motion.div>
@@ -361,14 +355,13 @@ export default function Contact() {
             </div>
             <div className="pt-4 border-t border-slate-100 space-y-1.5 text-sm">
               <a
-                href="mailto:vasoo.exim1111@gmail.com"
+                href="mailto:shahinrajwan@gmail.com"
                 className="block text-indigo-600 font-bold hover:underline"
               >
-                vasoo.exim1111@gmail.com
+                shahinrajwan@gmail.com
               </a>
               <div className="text-slate-600 font-semibold space-y-0.5">
-                <p>P: +88 017 8268 0108</p>
-                <p>P: +09 190 7301 7018</p>
+                <p>P: +880 1621-120670</p>
               </div>
             </div>
           </motion.div>

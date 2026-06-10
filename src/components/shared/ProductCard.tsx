@@ -314,7 +314,7 @@ const ProductCard = ({ product }: { product: any }) => {
 
           <div className="flex items-baseline gap-1">
             <span className="text-lg font-black text-slate-900">
-              ৳{defaultVariant?.price || product.price || 0}
+              ${defaultVariant?.price || product.price || 0}
             </span>
             <span className="text-[10px] font-bold text-slate-400 uppercase">
               / {defaultVariant?.unit || "Unit"}

@@ -81,12 +81,14 @@ const AdminLayout = () => {
       >
         <div className="p-6">
           <div className="mb-8">
-            <h1 className="text-xl font-bold text-[#1e293b] leading-tight">
-              Admin Panel
-            </h1>
-            <p className="text-[11px] text-gray-500 font-medium tracking-wide">
-              Precision Control
-            </p>
+            <Link to={"/"}>
+              <h1 className="text-xl font-bold text-[#1e293b] leading-tight">
+                Admin Panel
+              </h1>
+              <p className="text-[11px] text-gray-500 font-medium tracking-wide">
+                Precision Control
+              </p>
+            </Link>
           </div>
 
           <nav className="space-y-1">
