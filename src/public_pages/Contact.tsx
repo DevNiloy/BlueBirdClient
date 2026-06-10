@@ -330,6 +330,12 @@ export default function Contact() {
               >
                 contact@bbbl.com.bd
               </a>
+              <a
+                href="mailto:bird0521blue@gmail.com"
+                className="block text-[#2D5DA1] font-bold hover:underline"
+              >
+                bird0521blue@gmail.com
+              </a>
             </div>
           </motion.div>
 
@@ -355,13 +361,14 @@ export default function Contact() {
             </div>
             <div className="pt-4 border-t border-slate-100 space-y-1.5 text-sm">
               <a
-                href="mailto:shahinrajwan@gmail.com"
+                href="mailto:bbbl.lifescience@gmail.com"
                 className="block text-indigo-600 font-bold hover:underline"
               >
-                shahinrajwan@gmail.com
+                bbbl.lifescience@gmail.com
               </a>
               <div className="text-slate-600 font-semibold space-y-0.5">
-                <p>P: +880 1621-120670</p>
+                <p>P: 01621120670</p>
+                <p>P: 01688625909</p>
               </div>
             </div>
           </motion.div>
